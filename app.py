@@ -1,6 +1,7 @@
 import pickle
 from pathlib import Path
 
+from flask_cors import CORS
 from flask import Flask, jsonify, render_template, request, send_file
 
 from src.history_db import clear_history, export_history_to_csv, fetch_history, init_db, save_history
@@ -9,6 +10,7 @@ from src.preprocess import ensure_nltk_resources
 
 
 app = Flask(__name__)
+CORS(app)
 ROOT = Path(__file__).resolve().parent
 MODEL_PATH = ROOT / "models" / "best_model.pkl"
 

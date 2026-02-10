@@ -84,6 +84,21 @@ python app.py
 ```
 Open `http://127.0.0.1:5000`.
 
+## 6A. GitHub Pages Frontend Deployment
+This project includes a static frontend in `docs/` for GitHub Pages.
+
+1. Deploy backend first (Render/Heroku/Railway).
+2. Set backend URL in `docs/config.js`:
+   - `window.API_BASE_URL = "https://your-backend-url";`
+3. In GitHub repo settings:
+   - `Settings -> Pages`
+   - Source: `Deploy from branch`
+   - Branch: `main`
+   - Folder: `/docs`
+4. Open your GitHub Pages URL.
+
+If you do not set `docs/config.js` to your backend URL, the UI cannot fetch analysis/history data.
+
 ## 7. API Endpoints
 
 ### `GET /health`
@@ -179,4 +194,3 @@ This project is a hybrid verification engine. It first checks official corrobora
 ## 14. Resume-Ready Description
 - Built a hybrid fake news verification system combining official portal comparison and TF-IDF based ML classification with an explainable decision engine.  
 - Developed Flask + SQLite backend with history tracking, filtering, CSV export, and a responsive frontend for transparent verification workflows.
-
